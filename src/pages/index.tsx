@@ -1,0 +1,146 @@
+import { NextPage } from "next";
+import { NextSeo } from "next-seo";
+import Link from "next/link";
+import { Fragment } from "react";
+import Companies from "~/components/Customers";
+import Feature from "~/components/Feature";
+import Showcase from "~/components/Showcase";
+
+const Home: NextPage = () => {
+  return (
+    <Fragment>
+      <NextSeo
+        title="DataTorch - The collaborative COCO annotation platform for AI/ML"
+        description="DataTorch provides a platform and tools for building collaborative machine learning projects."
+      />
+
+      <div className="space-y-16">
+        <div className="__with_pattern px-8 py-20 rounded-lg">
+          <section className="px-2 sm:px-12 md:px-24 py-8 md:py-16">
+            <div className="space-y-1 max-w-4xl w-full">
+              <div className="space-y-2">
+                <h1
+                  className="text-2xl sm:text-3xl md:text-4xl font-bold"
+                  style={{ fontFamily: "poppins" }}>
+                  The collaborative COCO annotator platform for{" "}
+                  <span className="underline decoration-dotted decoration-orange-600">
+                    everyone
+                  </span>
+                  .
+                </h1>
+
+                <p
+                  className="text-gray-600 text-sm md:text-lg"
+                  style={{ fontFamily: "poppins" }}>
+                  DataTorch is a collaborative data annotation platform for
+                  building datasets at any scale and exporting them in COCO
+                  format.
+                </p>
+              </div>
+
+              <div>
+                <Link href="#">
+                  <a
+                    className="text-orange-600 text-lg md:text-2xl"
+                    style={{ fontFamily: "poppins" }}>
+                    Learn More&nbsp;&rarr;
+                  </a>
+                </Link>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <section>
+          <Companies />
+        </section>
+
+        <Showcase
+          short="Unlimited Scale"
+          title="Empowering machine learning for teams of any size."
+          content={
+            <Fragment>
+              <p>
+                Whether you are first getting started with AI or a veteran
+                machine learning practitioner, DataTorch makes building datasets
+                as simple as it gets, while being as powerful as you need.
+              </p>
+
+              <p>
+                Our software is designed to scale from a single user to massive
+                multi-team companies. That's why DataTorch has processed over{" "}
+                <span className="font-bold italic text-orange-500">
+                  one million annotations
+                </span>{" "}
+                across people, startups, and enterprises all over the world.
+              </p>
+            </Fragment>
+          }
+          more={
+            <img
+              className="rounded-md"
+              src="/images/datatorch-annotator-chess-demo.jpg"
+              alt="DataTorch Annotator Chess Demo"
+            />
+          }
+        />
+
+        <Showcase
+          reversed
+          short="Developer Centric APIs and SDKs"
+          title="The clean and simple UI is really just for the annotators."
+          content={
+            <Fragment>
+              <p>
+                Beneath the surface, DataTorch is an extensible developer tool
+                that has been refined over multiple iterations to streamline our
+                users with total control over how and when their data is
+                handled.
+              </p>
+            </Fragment>
+          }
+          more={
+            <img
+              className="rounded-md"
+              src="/images/datatorch-developer-documentation.png"
+              alt="DataTorch Annotator Chess Demo"
+            />
+          }
+        />
+
+        <section className="px-8 lg:px-24">
+          <h1
+            style={{ fontFamily: "poppins" }}
+            className="text-center pb-4 font-semibold text-xl sm:text-2xl md:text-3xl lg:text-4xl">
+            One project.{" "}
+            <span className="text-orange-500">Infinite possibilities.</span>
+          </h1>
+
+          <div className="mt-4 space-y-4 items-center flex flex-col">
+            <Feature
+              name="Team Annotations"
+              info="Add up to 2 additional collaborators to your private project at no cost. Use DataTorch for your own individual private use, free forever."
+            />
+
+            <Feature
+              name="Storage Providers"
+              info="Quickly populate your datasets with our simple drag-and-drop interface. Directly access files from any AWS, Google, or Azure cloud storage."
+            />
+
+            <Feature
+              name="Workflow Integrations"
+              info="Add up to 2 additional collaborators to your private project at no cost. Use DataTorch for your own individual private use, free forever."
+            />
+
+            <Feature
+              name="Comprehensive Datasets"
+              info="Create datasets across multiple file storages without needing to move files. Diagram annotation classes in advance, or as-you-go in our annotation tool."
+            />
+          </div>
+        </section>
+      </div>
+    </Fragment>
+  );
+};
+
+export default Home;
