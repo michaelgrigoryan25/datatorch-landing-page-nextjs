@@ -111,7 +111,7 @@ export default function Navbar() {
         <div className="">
           <Link href="/login">
             <a
-              className="inline-block text-white px-3 py-2 bg-orange-400 text-xs sm:text-sm rounded-full transition-all hover:bg-transparent hover:text-orange-400 hover:border-orange-300 border-2 border-transparent hover:outline-dotted"
+              className="inline-block text-white px-3 py-2 bg-orange-600 text-xs sm:text-sm rounded-full transition-all hover:bg-transparent hover:text-orange-400 hover:border-orange-300 border-2 border-transparent hover:outline-dotted"
               style={{ fontFamily: "poppins" }}>
               Get Started
             </a>
