@@ -1,13 +1,17 @@
 type Props = {
   name: string;
   info: string;
+  icon: JSX.Element;
 };
 
-export default function Feature({ name, info }: Props) {
+export default function Feature({ name, info, icon }: Props) {
   return (
-    <div className="select-none max-w-3xl rounded-lg p-4 h-full bg-orange-100">
-      <h2 className="font-semibold text-xl">{name}</h2>
-      <p>{info}</p>
+    <div className="items-center max-w-xl md:max-w-3xl gap-4 rounded-lg p-2 md:p-4 flex bg-orange-100">
+      <div className="pl-2">{icon}</div>
+      <div className="w-full">
+        <h2 className="font-semibold text-md md:text-xl">{name}</h2>
+        <p className="text-sm">{info}</p>
+      </div>
     </div>
   );
 }
