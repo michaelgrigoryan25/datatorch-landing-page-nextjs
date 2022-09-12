@@ -23,7 +23,7 @@ const links: Link[] = [
 
 export default function Navbar() {
   return (
-    <div className="shadow-md z-10 backdrop-blur-xl sticky top-0 py-4 px-4 md:px-12 lg:px-24 border">
+    <div className="shadow-md z-10 top-0 py-4 px-4 md:px-12 lg:px-24 border">
       <div className="flex justify-between items-center">
         <div className="flex gap-12 items-center">
           <Link href="/">

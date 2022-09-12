@@ -18,7 +18,7 @@ export default function Popover({ content, more }: Props) {
   return (
     <TailwindPopover>
       {({ open }) => (
-        <>
+        <Fragment>
           <TailwindPopover.Button
             className={`
                 ${open ? "" : "text-opacity-90"}
@@ -69,7 +69,7 @@ export default function Popover({ content, more }: Props) {
               </div>
             </TailwindPopover.Panel>
           </Transition>
-        </>
+        </Fragment>
       )}
     </TailwindPopover>
   );
