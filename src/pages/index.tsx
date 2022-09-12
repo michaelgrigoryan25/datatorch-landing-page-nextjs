@@ -10,12 +10,21 @@ import Companies from "~/components/Customers";
 import Feature from "~/components/Feature";
 import Showcase from "~/components/Showcase";
 import Testimonial from "~/components/Testimonial";
+import Pricing from "~/components/Pricing";
 
 const Home: NextPage = () => {
   return (
     <Fragment>
       <NextSeo
-        title="DataTorch - The collaborative COCO annotation platform for AI/ML"
+        openGraph={{
+          images: [
+            {
+              alt: "https://ph-files.imgix.net/e6a6589e-23be-48c5-835f-1e61359c62e5.png?auto=format&fit=crop",
+              url: "https://datatorch.io/images/features/annotator/annotator-hero.jpg",
+            },
+          ],
+        }}
+        title="DataTorch | A collaborative COCO annotation platform for AI/ML teams"
         description="DataTorch provides a platform and tools for building collaborative machine learning projects. Build, and deploy models with all the tools in one place. Share and collaborate with other machine learning practitioners."
       />
 
@@ -102,6 +111,13 @@ const Home: NextPage = () => {
                 users with total control over how and when their data is
                 handled.
               </p>
+
+              <p>
+                DataTorch provides engineers a robust APIs and SDKs, giving a
+                complete control over every aspect of their data, automating
+                deployments, creating AI-assisted annotation tools, and more
+                with Agents and Pipelines.
+              </p>
             </Fragment>
           }
           more={
@@ -158,7 +174,72 @@ const Home: NextPage = () => {
           </div>
         </section>
 
-        <section className="px-2 md:px-24 py-12">
+        <section className="px-2 md:px-24">
+          <Pricing
+            prices={[
+              {
+                price: "0",
+                name: "Starter",
+                button: {
+                  content: "Get Started",
+                  href: "https://datatorch.io/register",
+                },
+                info: "Best option for personal use & for your next project.",
+                features: [
+                  { name: "10GB Encrypted Cloud Storage" },
+                  { name: "500 minutes/month on DataTorch Agents" },
+                  { name: "3 Datasets per private project" },
+                  { name: "DataTorch COCO Annotator" },
+                  { name: "DataTorch Pipelines" },
+                  { name: "Access via DataTorch Python SDK, and CLI" },
+                  { name: "Community support" },
+                ],
+              },
+              {
+                price: "24.99",
+                name: "Professional",
+                popular: true,
+                button: {
+                  customBgStyle:
+                    "bg-transparent text-black border-2 border-dotted font-bold border-orange-400",
+                  content: "Try for Free",
+                  href: "https://datatorch.io/register",
+                },
+                includes: "Starter",
+                info: "Best option for personal use & for your next project.",
+                features: [
+                  { name: "1TB Encrypted Cloud Storage" },
+                  { name: "2000 minutes/month on DataTorch Agents" },
+                  { name: "Permission management" },
+                  { name: "Unlimited private projects" },
+                  { name: "Unlimited project collaborators" },
+                  { name: "Unlimited self-hosted DataTorch Agents" },
+                ],
+              },
+              {
+                price: "99.99",
+                name: "Enterprise",
+                includes: "Professional",
+                button: {
+                  content: "Contact Sales",
+                  href: "https://datatorch.io/contact",
+                },
+                info: "The complete AI/ML DataTorch production suite.",
+                features: [
+                  { name: "Unlimited Encrypted Cloud Storage" },
+                  { name: "50,000 minutes/month on DataTorch Agents" },
+                  { name: "On-premises Deployments" },
+                  { name: "Custom Feature Requests" },
+                  { name: "SAML SSO + Advanced Security" },
+                  { name: "Priority Support" },
+                  { name: "99.9% uptime SLA" },
+                ],
+              },
+            ]}
+          />
+        </section>
+
+        <section className="px-2 md:px-24 pb-12">
           <Testimonial
             name="John Winder"
             href="https://dentuit.ai/"
