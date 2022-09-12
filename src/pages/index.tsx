@@ -16,7 +16,7 @@ const Home: NextPage = () => {
     <Fragment>
       <NextSeo
         title="DataTorch - The collaborative COCO annotation platform for AI/ML"
-        description="DataTorch provides a platform and tools for building collaborative machine learning projects."
+        description="DataTorch provides a platform and tools for building collaborative machine learning projects. Build, and deploy models with all the tools in one place. Share and collaborate with other machine learning practitioners."
       />
 
       <div className="space-y-16">
