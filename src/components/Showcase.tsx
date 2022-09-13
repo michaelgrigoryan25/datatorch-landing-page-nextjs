@@ -1,9 +1,11 @@
+import { motion } from "framer-motion";
+
 type Props = {
-  short: string;
-  title: string;
-  content: JSX.Element;
-  more?: JSX.Element;
-  reversed?: boolean;
+  readonly short: string;
+  readonly title: string;
+  readonly content: JSX.Element;
+  readonly more?: JSX.Element;
+  readonly reversed?: boolean;
 };
 
 export default function Showcase({
@@ -15,27 +17,39 @@ export default function Showcase({
 }: Props) {
   return (
     <section className="px-8 lg:px-24 pb-4">
-      <div
-        className={[
-          !reversed
-            ? `flex flex-col md:flex-row`
-            : "flex flex-col md:flex-row-reverse",
-          `gap-10`,
-        ].join(" ")}>
-        <div className="space-y-2 w-full">
-          <span className="text-orange-500 text-xl font-semibold">{short}</span>
+      <motion.div
+        viewport={{ once: true }}
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 0.8, delay: 0.4 }}>
+        <div
+          className={[
+            !reversed
+              ? `flex flex-col md:flex-row`
+              : "flex flex-col md:flex-row-reverse",
+            `gap-10`,
+          ].join(" ")}>
+          <div className="space-y-2 w-full">
+            <span className="text-orange-500 text-xl font-semibold">
+              {short}
+            </span>
 
-          <h1
-            style={{ fontFamily: "poppins" }}
-            className="text-2xl font-semibold">
-            {title}
-          </h1>
+            <h1
+              style={{ fontFamily: "poppins" }}
+              className="text-2xl font-semibold">
+              {title}
+            </h1>
 
-          {content}
+            {content}
+          </div>
+
+          {!!more && (
+            <div className="flex md:max-w-sm lg:max-w-lg justify-end items-center">
+              {more}
+            </div>
+          )}
         </div>
-
-        {!!more && <div className="flex md:max-w-sm lg:max-w-lg justify-end items-center">{more}</div>}
-      </div>
+      </motion.div>
     </section>
   );
 }

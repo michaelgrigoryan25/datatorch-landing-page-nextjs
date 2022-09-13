@@ -4,15 +4,13 @@ import "~/styles/tailwind.css";
 
 import type { AppProps } from "next/app";
 import { Fragment } from "react";
-import Navbar from "~/components/Navbar";
-import Footer from "~/components/Footer";
 
 function App({ Component, pageProps }: AppProps) {
   return (
     <Fragment>
-      <Navbar />
-      <Component {...pageProps} />
-      <Footer />
+      <Fragment>
+        <Component {...pageProps} />
+      </Fragment>
     </Fragment>
   );
 }

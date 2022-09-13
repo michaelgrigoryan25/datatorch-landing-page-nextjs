@@ -11,8 +11,8 @@ type Content = {
 };
 
 type Props = {
-  content: Content[];
-  more?: JSX.Element;
+  readonly content: Content[];
+  readonly more?: JSX.Element;
 };
 
 export default function Popover({ content, more }: Props) {

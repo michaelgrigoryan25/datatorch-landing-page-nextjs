@@ -1,14 +1,17 @@
 import { nanoid } from "nanoid";
-import { Fragment } from "react";
+import { Fragment, useState } from "react";
 
 type Feature = {
-  name: string;
+  readonly name: string;
 };
 
 type Pricing = {
   name: string;
   info: string;
-  price: string;
+  price: {
+    monthly: string;
+    annually?: string;
+  };
   popular?: boolean;
   includes?: string;
   button: {
@@ -19,11 +22,13 @@ type Pricing = {
   features: Feature[];
 };
 
-type Props = {
-  prices: Pricing[];
-};
-
-function Card({ pricing }: { pricing: Pricing }) {
+function Card({
+  pricing,
+  displayYearly,
+}: {
+  pricing: Pricing;
+  displayYearly: boolean;
+}) {
   return (
     <div className="border-solid border border-gray-200 p-4 flex flex-col justify-between w-full max-w-sm bg-white rounded-lg shadow-lg sm:p-8">
       <div>
@@ -43,7 +48,9 @@ function Card({ pricing }: { pricing: Pricing }) {
         <div className="flex items-baseline text-gray-900">
           <span className="text-3xl font-semibold">$</span>
           <span className="text-5xl font-extrabold tracking-tight">
-            {pricing.price}
+            {!displayYearly
+              ? pricing.price.monthly
+              : pricing.price.annually || pricing.price.monthly}
           </span>
           <span className="ml-1 text-xl font-normal text-gray-500">/month</span>
         </div>
@@ -83,8 +90,8 @@ function Card({ pricing }: { pricing: Pricing }) {
         </ul>
       </div>
 
-      <button
-        type="button"
+      <a
+        href={pricing.button.href}
         className={[
           pricing.button.customBgStyle
             ? pricing.button.customBgStyle
@@ -92,13 +99,19 @@ function Card({ pricing }: { pricing: Pricing }) {
           `text-white bottom-0 transition-all duration-150 focus:ring-4 focus:outline-none focus:ring-blue-200 font-medium rounded-lg text-sm px-5 py-2.5 inline-flex justify-center w-full text-center`,
         ].join(" ")}>
         {pricing.button.content}
-      </button>
+      </a>
     </div>
   );
 }
 
+type Props = {
+  readonly prices: Pricing[];
+};
+
 export default function Pricing({ prices }: Props) {
   prices = prices.sort((a, b) => Number(a.price) - Number(b.price));
+
+  const [displayYearly, setDisplayYearly] = useState(true);
 
   return (
     <Fragment>
@@ -117,12 +130,36 @@ export default function Pricing({ prices }: Props) {
             annotation tools to AI/ML teams. Choose the plan that fits your
             needs, and start working on your next project within minutes!
           </p>
+
+          <div className="flex items-center justify-center flex-col md:flex-row gap-4">
+            <button
+              onClick={() => setDisplayYearly(!displayYearly)}
+              className={[
+                "p-2 text-white font-semibold border-solid border-2 border-transparent rounded-lg transition-all",
+                !displayYearly
+                  ? "bg-orange-400"
+                  : "text-black border-orange-300",
+              ].join(" ")}>
+              Monthly Billing
+            </button>
+
+            <button
+              onClick={() => setDisplayYearly(!displayYearly)}
+              className={[
+                "p-2 text-white font-semibold rounded-lg border-solid border-2 border-transparent transition-all",
+                displayYearly
+                  ? "bg-orange-400"
+                  : "text-black border-orange-300",
+              ].join(" ")}>
+              Yearly Billing (Save up to 17%!)
+            </button>
+          </div>
         </div>
 
         <div className="mt-8 flex items-center h-full justify-center">
           <div className="items-stretch align-middle flex-col xl:flex-row flex gap-7">
             {prices.map((p) => (
-              <Card key={nanoid()} pricing={p} />
+              <Card displayYearly={displayYearly} key={nanoid()} pricing={p} />
             ))}
           </div>
         </div>

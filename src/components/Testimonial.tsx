@@ -1,9 +1,9 @@
 type Props = {
-  name: string;
-  text: string;
-  image: string;
-  href: string;
-  position: string;
+  readonly name: string;
+  readonly text: string;
+  readonly image: string;
+  readonly href: string;
+  readonly position: string;
 };
 
 export default function Testimonial({

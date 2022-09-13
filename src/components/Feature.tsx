@@ -1,7 +1,7 @@
 type Props = {
-  name: string;
-  info: string;
-  icon: JSX.Element;
+  readonly name: string;
+  readonly info: string;
+  readonly icon: JSX.Element;
 };
 
 export default function Feature({ name, info, icon }: Props) {
