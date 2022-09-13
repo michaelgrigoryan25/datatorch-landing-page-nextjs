@@ -133,7 +133,7 @@ export default function Pricing({ prices }: Props) {
 
           <div className="flex items-center justify-center flex-col md:flex-row gap-4">
             <button
-              onClick={() => setDisplayYearly(!displayYearly)}
+              onClick={() => displayYearly && setDisplayYearly(!displayYearly)}
               className={[
                 "p-2 text-white font-semibold border-solid border-2 border-transparent rounded-lg transition-all",
                 !displayYearly
@@ -144,7 +144,7 @@ export default function Pricing({ prices }: Props) {
             </button>
 
             <button
-              onClick={() => setDisplayYearly(!displayYearly)}
+              onClick={() => !displayYearly && setDisplayYearly(!displayYearly)}
               className={[
                 "p-2 text-white font-semibold rounded-lg border-solid border-2 border-transparent transition-all",
                 displayYearly
