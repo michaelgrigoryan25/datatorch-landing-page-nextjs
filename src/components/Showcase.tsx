@@ -16,7 +16,7 @@ export default function Showcase({
   more,
 }: Props) {
   return (
-    <section className="px-8 lg:px-24 pb-4">
+    <section className="px-8 sm:px-12 lg:px-24 pb-4">
       <motion.div
         viewport={{ once: true }}
         initial={{ opacity: 0 }}
@@ -27,7 +27,7 @@ export default function Showcase({
             !reversed
               ? `flex flex-col md:flex-row`
               : "flex flex-col md:flex-row-reverse",
-            `gap-10`,
+            "gap-10",
           ].join(" ")}>
           <div className="space-y-2 w-full">
             <span className="text-orange-500 text-xl font-semibold">
@@ -44,8 +44,8 @@ export default function Showcase({
           </div>
 
           {!!more && (
-            <div className="flex md:max-w-sm lg:max-w-lg justify-end items-center">
-              {more}
+            <div className="flex justify-center w-full align-middle items-center">
+              <div className="max-w-lg">{more}</div>
             </div>
           )}
         </div>

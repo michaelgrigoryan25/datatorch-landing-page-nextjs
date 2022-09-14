@@ -1,3 +1,25 @@
+import { nanoid } from "nanoid";
+
+type Link = {
+  name: string;
+  href: string;
+  blank?: boolean;
+  className?: string;
+};
+
+const links: Link[] = [
+  {
+    name: "Sign Up",
+    href: "https://datatorch.io/register",
+  },
+  {
+    blank: true,
+    name: "Contact Sales",
+    className: "bg-orange-50",
+    href: "https://datatorch.io/contact",
+  },
+];
+
 export default function _CTA() {
   return (
     <section
@@ -15,13 +37,17 @@ export default function _CTA() {
         </div>
 
         <div className="mx-auto items-center gap-3 justify-center flex flex-col md:flex-row">
-          <button className="bg-orange-200 px-8 rounded-full py-2">
-            Sign Up
-          </button>
-
-          <button className="bg-orange-50 px-8 rounded-full py-2">
-            Contact Sales
-          </button>
+          {links.map((link) => (
+            <a
+              key={nanoid()}
+              href={link.href}
+              target={link.blank ? "_blank" : "_self"}
+              className={`bg-orange-200 px-8 rounded-full py-2 ${
+                link.className ?? ""
+              }`}>
+              {link.name}
+            </a>
+          ))}
         </div>
       </div>
     </section>

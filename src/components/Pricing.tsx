@@ -136,7 +136,18 @@ export default function Pricing({ prices, className = "" }: Props) {
             needs, and start working on your next project within minutes!
           </p>
 
-          <div className="flex items-center justify-center flex-col md:flex-row gap-4">
+          <div className="flex items-center justify-center flex-col sm:flex-row gap-3">
+            <button
+              onClick={() => !displayYearly && setDisplayYearly(!displayYearly)}
+              className={[
+                "p-2 text-white font-semibold rounded-lg border-solid border-2 border-transparent transition-all",
+                displayYearly
+                  ? "bg-orange-500"
+                  : "text-black border-orange-300",
+              ].join(" ")}>
+              Yearly Billing (Save 17%!)
+            </button>
+
             <button
               onClick={() => displayYearly && setDisplayYearly(!displayYearly)}
               className={[
@@ -146,17 +157,6 @@ export default function Pricing({ prices, className = "" }: Props) {
                   : "text-black border-orange-300",
               ].join(" ")}>
               Monthly Billing
-            </button>
-
-            <button
-              onClick={() => !displayYearly && setDisplayYearly(!displayYearly)}
-              className={[
-                "p-2 text-white font-semibold rounded-lg border-solid border-2 border-transparent transition-all",
-                displayYearly
-                  ? "bg-orange-500"
-                  : "text-black border-orange-300",
-              ].join(" ")}>
-              Yearly Billing (Save up to 17%!)
             </button>
           </div>
         </div>
