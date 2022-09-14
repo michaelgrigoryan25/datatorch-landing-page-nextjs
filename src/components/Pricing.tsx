@@ -140,9 +140,9 @@ export default function Pricing({ prices, className = "" }: Props) {
             <button
               onClick={() => !displayYearly && setDisplayYearly(!displayYearly)}
               className={[
-                "p-2 text-white font-semibold rounded-lg border-solid border-2 border-transparent transition-all",
+                "p-2 font-semibold rounded-lg border-solid border-2 border-transparent transition-all",
                 displayYearly
-                  ? "bg-orange-500"
+                  ? "bg-orange-500 text-white"
                   : "text-black border-orange-300",
               ].join(" ")}>
               Yearly Billing (Save 17%!)
@@ -153,7 +153,7 @@ export default function Pricing({ prices, className = "" }: Props) {
               className={[
                 "p-2 text-white font-semibold border-solid border-2 border-transparent rounded-lg transition-all",
                 !displayYearly
-                  ? "bg-orange-500"
+                  ? "bg-orange-500 text-white"
                   : "text-black border-orange-300",
               ].join(" ")}>
               Monthly Billing
