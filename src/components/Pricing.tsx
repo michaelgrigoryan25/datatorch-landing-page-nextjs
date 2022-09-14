@@ -1,5 +1,5 @@
 import { nanoid } from "nanoid";
-import { Fragment, ReactElement, ReactNode, useState } from "react";
+import { Fragment, useState } from "react";
 
 type Feature = {
   readonly name: string;
@@ -141,7 +141,7 @@ export default function Pricing({ prices, className = "" }: Props) {
 
           <div className="flex items-center justify-center flex-col sm:flex-row gap-3">
             <button
-              onClick={() => !displayYearly && setDisplayYearly(!displayYearly)}
+              onClick={() => !displayYearly && setDisplayYearly(true)}
               className={[
                 "p-2 font-semibold rounded-lg border-solid border-2 border-transparent transition-all",
                 displayYearly
@@ -152,12 +152,12 @@ export default function Pricing({ prices, className = "" }: Props) {
             </button>
 
             <button
-              onClick={() => displayYearly && setDisplayYearly(!displayYearly)}
+              onClick={() => displayYearly && setDisplayYearly(false)}
               className={[
-                "p-2 text-white font-semibold border-solid border-2 border-transparent rounded-lg transition-all",
+                "p-2 font-semibold border-solid border-2 border-transparent rounded-lg transition-all",
                 displayYearly
-                  ? "bg-orange-500 text-white"
-                  : "text-black border-orange-300",
+                  ? "text-black border-orange-300"
+                  : "bg-orange-500 text-white",
               ].join(" ")}>
               Monthly Billing
             </button>
