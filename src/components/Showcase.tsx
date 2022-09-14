@@ -21,7 +21,7 @@ export default function Showcase({
         viewport={{ once: true }}
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
-        transition={{ duration: 0.8, delay: 0.4 }}>
+        transition={{ duration: 0.4, delay: 0.2 }}>
         <div
           className={[
             !reversed
