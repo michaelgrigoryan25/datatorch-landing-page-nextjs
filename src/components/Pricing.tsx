@@ -1,5 +1,5 @@
 import { nanoid } from "nanoid";
-import { Fragment, useState } from "react";
+import { Fragment, ReactElement, ReactNode, useState } from "react";
 
 type Feature = {
   readonly name: string;
@@ -19,18 +19,22 @@ type Pricing = {
     content: string;
     customBgStyle?: string; // background color + hover
   };
+  className?: string;
   features: Feature[];
 };
 
 function Card({
   pricing,
-  displayYearly,
+  _displayYearlyState,
 }: {
   pricing: Pricing;
-  displayYearly: boolean;
+  _displayYearlyState: boolean;
 }) {
   return (
-    <div className="border-solid border border-gray-200 p-4 flex flex-col justify-between w-full max-w-sm bg-white rounded-lg shadow-lg sm:p-8">
+    <div
+      className={`${
+        pricing.className ?? ""
+      } border-solid border border-gray-200 p-4 flex flex-col justify-between w-full max-w-sm bg-white rounded-lg shadow-lg sm:p-8`}>
       <div>
         <h5
           style={{ fontFamily: "poppins" }}
@@ -48,7 +52,7 @@ function Card({
         <div className="flex items-baseline text-gray-900">
           <span className="text-3xl font-semibold">$</span>
           <span className="text-5xl font-extrabold tracking-tight">
-            {!displayYearly
+            {!_displayYearlyState
               ? pricing.price.monthly
               : pricing.price.annually || pricing.price.monthly}
           </span>
@@ -104,11 +108,12 @@ function Card({
   );
 }
 
-type Props = {
+interface Props {
   readonly prices: Pricing[];
-};
+  readonly className?: string;
+}
 
-export default function Pricing({ prices }: Props) {
+export default function Pricing({ prices, className = "" }: Props) {
   prices = prices.sort((a, b) => Number(a.price) - Number(b.price));
 
   const [displayYearly, setDisplayYearly] = useState(true);
@@ -137,7 +142,7 @@ export default function Pricing({ prices }: Props) {
               className={[
                 "p-2 text-white font-semibold border-solid border-2 border-transparent rounded-lg transition-all",
                 !displayYearly
-                  ? "bg-orange-400"
+                  ? "bg-orange-500"
                   : "text-black border-orange-300",
               ].join(" ")}>
               Monthly Billing
@@ -148,7 +153,7 @@ export default function Pricing({ prices }: Props) {
               className={[
                 "p-2 text-white font-semibold rounded-lg border-solid border-2 border-transparent transition-all",
                 displayYearly
-                  ? "bg-orange-400"
+                  ? "bg-orange-500"
                   : "text-black border-orange-300",
               ].join(" ")}>
               Yearly Billing (Save up to 17%!)
@@ -157,9 +162,14 @@ export default function Pricing({ prices }: Props) {
         </div>
 
         <div className="mt-8 flex items-center h-full justify-center">
-          <div className="items-stretch align-middle flex-col xl:flex-row flex gap-7">
+          <div
+            className={`items-stretch align-middle flex-col xl:flex-row flex gap-7 ${className}`}>
             {prices.map((p) => (
-              <Card displayYearly={displayYearly} key={nanoid()} pricing={p} />
+              <Card
+                _displayYearlyState={displayYearly}
+                key={nanoid()}
+                pricing={p}
+              />
             ))}
           </div>
         </div>

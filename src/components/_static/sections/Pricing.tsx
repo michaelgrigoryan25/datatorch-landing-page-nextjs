@@ -4,6 +4,7 @@ export default function _Pricing() {
   return (
     <section id="pricing" className="px-2 md:px-24">
       <Pricing
+      className="xl:mt-12"
         prices={[
           {
             price: {
@@ -48,6 +49,7 @@ export default function _Pricing() {
               { name: "Unlimited project collaborators" },
               { name: "Unlimited self-hosted DataTorch Agents" },
             ],
+            className: "xl:-translate-y-10"
           },
           {
             price: {
