@@ -27,7 +27,7 @@ export default function Testimonial({
         <hr className="max-w-sm mx-auto my-4" />
 
         <figcaption className="flex items-center justify-center space-x-3">
-          <div className="flex align-middle flex-col md:flex-row items-center divide-x-2 gap-4 divide-gray-500">
+          <div className="flex align-middle flex-col md:flex-row items-center divide-x-2 gap-2 sm:gap-4 divide-gray-500">
             <span className="font-medium text-gray-900">{name}</span>
             <span className="hidden md:inline-block">•</span>
             <span style={{ fontFamily: "poppins" }} className="text-sm">
