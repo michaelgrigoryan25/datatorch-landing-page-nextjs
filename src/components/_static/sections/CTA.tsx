@@ -4,7 +4,7 @@ type Link = {
   name: string;
   href: string;
   blank?: boolean;
-  className?: string;
+  color?: string;
 };
 
 const links: Link[] = [
@@ -15,7 +15,7 @@ const links: Link[] = [
   {
     blank: true,
     name: "Contact Sales",
-    className: "bg-orange-50",
+    color: "bg-orange-50",
     href: "https://datatorch.io/contact",
   },
 ];
@@ -42,8 +42,8 @@ export default function _CTA() {
               key={nanoid()}
               href={link.href}
               target={link.blank ? "_blank" : "_self"}
-              className={`bg-orange-200 px-8 rounded-full py-2 ${
-                link.className ?? ""
+              className={`px-8 rounded-full py-2 ${
+                link.color || "bg-orange-200"
               }`}>
               {link.name}
             </a>
