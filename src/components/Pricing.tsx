@@ -17,6 +17,7 @@ type Pricing = {
   button: {
     href: string;
     content: string;
+    textColor?: string;
     customBgStyle?: string; // background color + hover
   };
   className?: string;
@@ -100,7 +101,9 @@ function Card({
           pricing.button.customBgStyle
             ? pricing.button.customBgStyle
             : `bg-orange-600 hover:bg-orange-700`,
-          `text-white bottom-0 transition-all duration-150 focus:ring-4 focus:outline-none focus:ring-blue-200 font-medium rounded-lg text-sm px-5 py-2.5 inline-flex justify-center w-full text-center`,
+          `${
+            pricing.button.textColor || "text-white"
+          } bottom-0 transition-all duration-150 focus:ring-4 focus:outline-none focus:ring-blue-200 font-medium rounded-lg text-sm px-5 py-2.5 inline-flex justify-center w-full text-center`,
         ].join(" ")}>
         {pricing.button.content}
       </a>

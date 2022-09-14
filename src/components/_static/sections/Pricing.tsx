@@ -37,6 +37,7 @@ export default function _Pricing() {
               customBgStyle:
                 "bg-transparent text-black border-2 border-dotted font-bold border-orange-400",
               content: "Try for Free",
+              textColor: "text-black",
               href: "https://datatorch.io/register",
             },
             includes: "Starter",
