@@ -152,7 +152,7 @@ export default function Pricing({ prices, className = "" }: Props) {
               onClick={() => displayYearly && setDisplayYearly(!displayYearly)}
               className={[
                 "p-2 text-white font-semibold border-solid border-2 border-transparent rounded-lg transition-all",
-                !displayYearly
+                displayYearly
                   ? "bg-orange-500 text-white"
                   : "text-black border-orange-300",
               ].join(" ")}>
