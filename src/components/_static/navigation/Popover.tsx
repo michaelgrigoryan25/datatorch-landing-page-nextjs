@@ -21,7 +21,7 @@ export function MobilePopover({ content, more }: Props) {
     <Popover>
       {({ open }) => (
         <Fragment>
-          <Popover.Button className="bg-orange-600 rounded-full bg-opacity-90 px-3 py-1.5">
+          <Popover.Button className="bg-orange-600 rounded-full px-3 py-1.5">
             <Icon
               inline={true}
               className="text-white text-lg ui-open:transform"
@@ -63,6 +63,14 @@ export function MobilePopover({ content, more }: Props) {
                       </div>
                     </a>
                   ))}
+
+                  <a
+                    href="https://datatorch.io/register"
+                    target={"_blank"}
+                    className="bg-orange-600 my-2 text-white p-2 rounded-full text-center font-bold text-xl"
+                    style={{ fontFamily: "poppins" }}>
+                    Get Started
+                  </a>
                 </div>
 
                 {!!more && <div className="bg-gray-50 p-4">{more}</div>}
