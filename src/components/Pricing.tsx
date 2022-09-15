@@ -142,23 +142,21 @@ export default function Pricing({ prices, className = "" }: Props) {
           <div className="flex items-center justify-center flex-col sm:flex-row gap-3">
             <button
               onClick={() => !displayYearly && setDisplayYearly(true)}
-              className={[
-                "p-2 font-semibold rounded-lg border-solid border-2 border-transparent transition-all",
+              className={`${
                 displayYearly
                   ? "bg-orange-500 text-white"
-                  : "text-black border-orange-300",
-              ].join(" ")}>
+                  : "text-black border-orange-300"
+              } p-2 font-semibold rounded-lg border-solid border-2 border-transparent transition-all`}>
               Yearly Billing (Save 17%!)
             </button>
 
             <button
               onClick={() => displayYearly && setDisplayYearly(false)}
-              className={[
-                "p-2 font-semibold border-solid border-2 border-transparent rounded-lg transition-all",
+              className={`${
                 displayYearly
                   ? "text-black border-orange-300"
-                  : "bg-orange-500 text-white",
-              ].join(" ")}>
+                  : "bg-orange-500 text-white"
+              } p-2 font-semibold border-solid border-2 border-transparent rounded-lg transition-all`}>
               Monthly Billing
             </button>
           </div>

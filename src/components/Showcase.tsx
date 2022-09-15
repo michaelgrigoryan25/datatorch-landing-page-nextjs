@@ -23,12 +23,11 @@ export default function Showcase({
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.4, delay: 0.2 }}>
         <div
-          className={[
+          className={`${
             !reversed
-              ? `flex flex-col md:flex-row`
-              : "flex flex-col md:flex-row-reverse",
-            "gap-10",
-          ].join(" ")}>
+              ? "flex flex-col md:flex-row"
+              : "flex flex-col md:flex-row-reverse"
+          } gap-10`}>
           <div className="space-y-2 w-full">
             <span className="text-orange-500 text-xl font-semibold">
               {short}
