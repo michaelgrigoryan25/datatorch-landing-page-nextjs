@@ -73,7 +73,7 @@ export function MobilePopover({ content, more }: Props) {
                   </a>
                 </div>
 
-                {!!more && <div className="p-4">{more}</div>}
+                {!!more && <div className="bg-white p-4">{more}</div>}
               </div>
             </Popover.Panel>
           </Transition>
@@ -133,7 +133,7 @@ export function WebPopover({ content, more }: Props) {
                   ))}
                 </div>
 
-                {!!more && <div className="p-4">{more}</div>}
+                {!!more && <div className="bg-white p-4">{more}</div>}
               </div>
             </Popover.Panel>
           </Transition>
